@@ -1,0 +1,50 @@
+.table-container .tabel .row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tabel .row .cell{
+    text-align: center;
+    width: 20%;
+    height: 8vh;
+    padding-top: 1vh;
+    background: #2e2e47;
+    border-radius: 5px;
+    color: rgba(108,117,125,.6);
+    word-break: break-all;
+}
+
+.tabel .row .cell .riseInConfirmed{
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(231, 35, 74, 0.747);
+}    
+
+.tabel .row .cell .riseInDeaths{
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    font-size: 12px;
+    color: rgb(109, 128, 235);
+}   
+
+.tabel .row .cell .active{
+    color: rgba(0, 123, 255, 0.781);
+}
+
+.tabel .row .cell .recovered{
+    color: rgba(60, 214, 96, 0.836);
+}
+
+.tabel .row .cell .confirmed{
+    color: rgba(224, 136, 36, 0.966);
+}
+
+.tabel .row .cell .deaths{
+    color: #f1e9e99f;
+}

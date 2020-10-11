@@ -1,0 +1,56 @@
+footer .main-content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content .title h2{
+    color: rgba(0,123,255,.6);
+    font-size: 20px;
+    font-weight: 500;
+    word-break: break-all;
+    margin-bottom: 15px;
+}
+
+.main-content .sub-title h5{
+    color: #6c757d!important;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+footer .main-content .links {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+footer .main-content .links .list-of-links{
+    list-style-type: none;
+    display: inline-flex;
+}
+
+.main-content .links .list-of-links li{
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 35px;
+}
+
+.main-content .links .list-of-links li .fa-github-square{
+    color: #6c757d!important;
+}
+
+.main-content .links .list-of-links li .fa-envelope-square{
+    color: rgba(182,133,77,.6);
+}
+
+.main-content .links .list-of-links li .fa-instagram-square{
+    color: rgba(165, 40, 40, 0.815);
+}
+
+.main-content .links .list-of-links li .fa-whatsapp-square{
+    color: rgba(48, 255, 7, 0.445);
+}
+
+
+

@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body, html{
+    background:  #161625!important;
+    font-family: 'Rubik', sans-serif;
+    color:  #6c757d;
+}
+
+.Home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-left, .home-right{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin-top: 5vh;
+}
+
+.home-header .Search{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-header {
+    width: 70%;
+}
+
+.home-left .home-header .Search .fadeUp {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.home-left .home-header .Search .search-btn button{
+    height: 50px;
+    border: solid .2px #6c757d;
+    outline: none;
+}
+
+.home-left .home-header .Search .search-btn .search-input{
+    height: 50px;
+    background: #1e1e30!important;
+    border: solid .2px #6c757d;
+}
+
+.home-left .home-header .Search .search-btn input[type=text]:focus{
+    width: 60%;
+    border: none;
+}
+
+.home-left .home-header .Search .time-stamp{
+    color: #6c757d;
+    font-size: 12px;
+}
+
+.home-left .Mappers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98%;
+}
+
+.home-left .Mappers .boxes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 2vh 1vw;
+    /* background:  violet!important; */
+    border-radius: 10px;
+    width: 25%;
+}
+
+.home-left .Mappers .boxes h5{
+    font-size: 14px;
+    margin-bottom: 3vh;
+}
+.home-left .Mappers .boxes h4{
+    font-size: 12px;
+}
+.home-left .Mappers .boxes h1{
+    font-size: 200%;
+}
+
+.home-left .Mappers .is-confirmed{
+    color: rgba(255,7,58,.6);
+}
+
+.home-left .Mappers .is-active{
+    color: rgba(0,123,255,.6);
+}
+
+.home-left .Mappers .is-recovered{
+    color: rgba(40,167,69,.6);
+}
+
+.home-left .Mappers .is-deceased{
+    color: #6c757d!important;
+}
+
+.home-left .Mappers .is-confirmed:hover{
+    cursor: pointer;
+    background: rgba(255,7,58,.12549);
+}
+
+.home-left .Mappers .is-active:hover{
+    cursor: pointer;
+    background: rgba(0,123,255,.0627451);
+}
+
+.home-left .Mappers .is-recovered:hover{
+    cursor: pointer;
+    background: rgba(40,167,69,.12549);
+}
+
+.home-left .Mappers .is-deceased:hover{
+    cursor: pointer;
+    background: rgba(108,117,125,.0627451);
+}
+
+.home-left .Mappers .is-active h1{
+    margin-top: 6vh;
+}
+
+.boxes .svg-parent{
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    background: transparent!important;
+    align-self: center;
+    margin-bottom: -1vh;
+}
+@media only screen and (min-width: 1299px){
+    .Home{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .home-left, .home-right{
+        width: 45%;
+    }
+
+    .home-left .table-container{
+        width: 80%;
+    }
+
+    .table-container .tabel .row{
+        min-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1298px){
+    .home-left .table-container{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .home-left, .home-right{
+        width: 90%;
+    }
+    .home-left .Mappers .boxes h1{
+        font-size: 4vw;
+    }
+    .home-left .Mappers .boxes h5{
+        font-size: 3.4vw;
+    }
+    .home-left .Mappers .boxes h4{
+        font-size: 3vw;
+    }
+
+    .home-left .table-container{
+        width: 100%;
+    }
+}
