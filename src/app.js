@@ -3,8 +3,7 @@ const hbs = require('hbs');
 const express = require('express');
 const moment = require('moment');
 const getStatistics = require('./utils/getStatistics');
-const getHistory = require('./utils/getHistory');
-const getCountries = require('./utils/getCountries');
+const getStatisticsOfCountry = require('./utils/getStatisticsOfCountry');
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -74,15 +73,30 @@ app.get('', (req, res)=>{
     })
 });
 
+app.get('/country', (req, res)=>{
+    if(!req.query.country){
+        return res.render('404page', {
+
+        })
+    }
+
+    getStatisticsOfCountry(req.query.country, (error, response)=> {
+        if(error){
+            return res.render('404page', {
+
+            })
+        }
+        res.send(response);
+
+        // res.render('country-detail', {
+            
+        // });
+    })
+});
+
 app.get('/corona/*', (req, res)=>{
     res.render('404page', {
         
-    });
-});
-
-app.get('/state/*', (req, res)=>{
-    res.render('state-detail', {
-
     });
 });
 

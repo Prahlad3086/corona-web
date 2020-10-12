@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body, html{
+    background:  #161625!important;
+    font-family: 'Rubik', sans-serif;
+    color:  #6c757d;
+}
+
+.wrapper-main{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper-main .wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.wrapper .top .Mappers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98%;
+}
+
+.wrapper .top .Mappers .boxes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 2vh 1vw;
+    /* background:  violet!important; */
+    border-radius: 10px;
+    width: 25%;
+}
+
+.wrapper .top .Mappers .boxes h5{
+    font-size: 14px;
+    margin-bottom: 3vh;
+}
+.wrapper .top .Mappers .boxes h4{
+    font-size: 12px;
+}
+.wrapper .top .Mappers .boxes h1{
+    font-size: 200%;
+}
+
+.wrapper .top .Mappers .is-confirmed{
+    color: rgba(255,7,58,.6);
+}
+
+.wrapper .top .Mappers .is-active{
+    color: rgba(0,123,255,.6);
+}
+
+.wrapper .top .Mappers .is-recovered{
+    color: rgba(40,167,69,.6);
+}
+
+.wrapper .top .Mappers .is-deceased{
+    color: #6c757d!important;
+}
+
+.wrapper .top .Mappers .is-confirmed:hover{
+    cursor: pointer;
+    background: rgba(255,7,58,.12549);
+}
+
+.wrapper .top .Mappers .is-active:hover{
+    cursor: pointer;
+    background: rgba(0,123,255,.0627451);
+}
+
+.wrapper .top .Mappers .is-recovered:hover{
+    cursor: pointer;
+    background: rgba(40,167,69,.12549);
+}
+
+.wrapper .top .Mappers .is-deceased:hover{
+    cursor: pointer;
+    background: rgba(108,117,125,.0627451);
+}
+
+.wrapper .top .Mappers .is-active h1{
+    margin-top: 6vh;
+}
+
+.wrapper .top .Mappers .is-recovered h1{
+    margin-top: 6vh;
+}
+
+.boxes .svg-parent{
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    background: transparent!important;
+    align-self: center;
+    margin-bottom: -1vh;
+}
+
+@media only screen and (min-width: 1299px){
+    .wrapper .top{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .wrapper-main .wrapper{
+        width: 98%;
+    }
+
+    .wrapper .top{
+        width: 90%;
+    }
+    .wrapper .top .Mappers .boxes h1{
+        font-size: 4vw;
+    }
+    .wrapper .top .Mappers .boxes h5{
+        font-size: 3.4vw;
+    }
+    .wrapper .top .Mappers .boxes h4{
+        font-size: 3vw;
+    }
+}

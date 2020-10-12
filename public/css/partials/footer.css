@@ -15,9 +15,15 @@ footer .main-content{
 
 .main-content .sub-title h5{
     color: #6c757d!important;
+    margin-left: 1.5vw;
     font-size: 14px;
     font-weight: 400;
     margin-bottom: 30px;
+}
+
+.main-content .sub-title h4{
+    color: #f1e9e99f;
+    font-weight: 600;
 }
 
 footer .main-content .links {
