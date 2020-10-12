@@ -1,6 +1,7 @@
 const path = require('path');
 const hbs = require('hbs');
 const express = require('express');
+const moment = require('moment');
 const getStatistics = require('./utils/getStatistics');
 const getHistory = require('./utils/getHistory');
 const getCountries = require('./utils/getCountries');
@@ -21,14 +22,54 @@ hbs.registerPartials(partialPath)
 //Setup Static directory to serve
 app.use(express.static(publicDirectoryPath));
 
+const NumberFormatter = (num)=>{
+    if(num >= 1000 && num < 1000000){
+        return (num/1000).toFixed(3) + 'K'; // convert to K for number from > 1000 < 1 million 
+    }else if(num >= 1000000 && num < 1000000000){
+        return (num/1000000).toFixed(3) + 'M'; // convert to M for number from > 1 million 
+    }else if(num >= 1000000000){
+	return (num/1000000000).toFixed(3) + 'B';
+    }
+    else if(num < 1000){
+        return num; // if value < 1000, nothing to do
+    }
+}
+
 app.get('', (req, res)=>{
-    getStatistics((error, { response })=> {
+    getStatistics((error, body)=> {
+        const response = body.response;
+        const dateTime = moment(body.response[0].time, moment.ISO_8601);
+
+        const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
+
+        let RiseConfirmed=0, Confirmed=0, Active=0, Recovered=0, RiseDeaths=0, Deaths=0;
+
+        for(let i=body.results-20;i<body.results;i++){
+            if(response[i].population === null){
+                var e = response[i];
+                RiseConfirmed+=Number(e.cases.new);
+                Confirmed+=Number(e.cases.total);
+                Active+=Number(e.cases.active);
+                Recovered+=Number(e.cases.recovered);
+                RiseDeaths+=Number(e.deaths.new);
+                Deaths+=Number(e.deaths.total);
+            }
+        }
         if(error){
             res.render({
                 error: error
-            })
+            });
         }else{
-            res.render('index', {response})
+            res.render('index', {
+                response,
+                dateAndTime,
+                RiseConfirmed: NumberFormatter(RiseConfirmed),
+                Confirmed: NumberFormatter(Confirmed),
+                Active: NumberFormatter(Active),
+                Recovered: NumberFormatter(Recovered),
+                RiseDeaths: NumberFormatter(RiseDeaths),
+                Deaths: NumberFormatter(Deaths)
+            });
         }
     })
 });

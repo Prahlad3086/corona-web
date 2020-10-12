@@ -10,9 +10,10 @@
     width: 20%;
     height: 8vh;
     padding-top: 1vh;
-    background: #2e2e47;
+    /* background: #2e2e47; */
+    background:  #1e1e30!important;
     border-radius: 5px;
-    color: rgba(108,117,125,.6);
+    color: #f1e9e99f;
     word-break: break-all;
 }
 
@@ -46,5 +47,5 @@
 }
 
 .tabel .row .cell .deaths{
-    color: #f1e9e99f;
+    color: rgba(145, 159, 172, 0.836);
 }
