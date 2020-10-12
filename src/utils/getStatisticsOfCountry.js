@@ -4,7 +4,7 @@ const getStatisticsOfCountry = (country, callback)=>{
 
     const options = {
         method: 'GET',
-        url: 'https://covid-193.p.rapidapi.com/statistics?country='+country,
+        url: 'https://covid-193.p.rapidapi.com/statistics?country=india',
         json: true,
         headers: {
             'x-rapidapi-host': 'covid-193.p.rapidapi.com',

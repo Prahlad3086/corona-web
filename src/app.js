@@ -74,11 +74,11 @@ app.get('', (req, res)=>{
 });
 
 app.get('/country', (req, res)=>{
-    if(!req.query.country){
-        return res.render('404page', {
+    // if(!req.query.country){
+    //     return res.render('404page', {
 
-        })
-    }
+    //     })
+    // }
 
     getStatisticsOfCountry(req.query.country, (error, response)=> {
         if(error){
@@ -86,11 +86,10 @@ app.get('/country', (req, res)=>{
 
             })
         }
-        res.send(response);
 
-        // res.render('country-detail', {
+        res.render('country-detail', {
             
-        // });
+        });
     })
 });
 

@@ -41,7 +41,7 @@ body, html{
     font-size: 14px;
 }
 
-.home-left .home-header .Search .search-btn button{
+/* .home-left .home-header .Search .search-btn button{
     height: 50px;
     border: solid .2px #6c757d;
     outline: none;
@@ -56,6 +56,11 @@ body, html{
 .home-left .home-header .Search .search-btn input[type=text]:focus{
     width: 60%;
     border: none;
+} */
+
+.home-left .home-header .Search .btn-container .switch{
+    background:  #1e1e30!important;
+    color:  #f1e9e99f;
 }
 
 .home-left .home-header .Search .time-stamp{
