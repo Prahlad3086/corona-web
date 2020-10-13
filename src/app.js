@@ -108,12 +108,12 @@ app.get('/country', (req, res)=>{
 });
 
 app.post('/country', function(req, res){
-    // if(!req.body.country){
-    //     return res.render('404page', {
-
-    //     })
-    // }
-    getStatisticsOfCountry(req.body.country, (error, { body })=> {
+    if(!req.body.country.trim()){
+        return res.render('404page', {
+            title: 'Please write country name'
+        })
+    }
+    getStatisticsOfCountry(req.body.country.trim(), (error, { body })=> {
         if(error){
             return res.render('404page', {
                 title: 'API is not responding. Please try again later!!'
@@ -142,15 +142,21 @@ app.post('/country', function(req, res){
     })
 });
 
-app.get('/corona/*', (req, res)=>{
-    res.render('404page', {
-        title: 'This page is not found'
-    });
-});
-
 app.get('/about', (req, res)=>{
     res.render('about', {
 
+    });
+});
+
+app.get('/country/*', (req, res)=>{
+    res.render('404page', {
+
+    });
+});
+
+app.get('/corona/*', (req, res)=>{
+    res.render('404page', {
+        title: 'This page is not found'
     });
 });
 

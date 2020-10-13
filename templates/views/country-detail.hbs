@@ -26,7 +26,7 @@
                     <div class="search-bar">
                         <label class="fadeUp">Search your country here</label>
                         <form class="mt-4 mb-1" action="/country" method="post">
-                            <input class="search-input pl-4" type="text" name="country" required autofocus>
+                            <input class="search-input pl-4" type="text" name="country" value="{{countryName}}" required>
                             <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         <label class="time-stamp mt-3">{{dateAndTime}} IST</label>
@@ -46,7 +46,7 @@
                                 <h4>{{testedTotal}}</h4>
                             </div>
                             <div class="tested source">
-                                <label>This is updated from source</label>
+                                <label>This is updated from same source</label>
                             </div>
                         </div>
                     </div>

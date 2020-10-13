@@ -9,6 +9,14 @@ body, html{
     color:  #6c757d;
 }
 
+.Navbar .navbar-head a{
+    color: #6c757d;
+}
+
+.Navbar .navbar-head .home{
+    color: #007bff;
+}
+
 .Home{
     display: flex;
     flex-direction: column;

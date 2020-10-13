@@ -9,6 +9,14 @@ body, html{
     color:  #6c757d;
 }
 
+.Navbar .navbar-head a{
+    color: #6c757d;
+}
+
+.Navbar .navbar-head .country{
+    color: #007bff;
+}
+
 .wrapper-main{
     display: flex;
     justify-content: space-between;
@@ -88,7 +96,7 @@ body, html{
     display: flex;
     justify-content: space-between;
     align-items: left;
-    max-width: 50%;
+    min-width: 50%;
     flex-direction: column;
     min-height: 20vh;
 }
@@ -97,7 +105,7 @@ body, html{
     display: flex;
     justify-content: space-between;
     align-items: right;
-    max-width: 50%;
+    max-width: auto;
     flex-direction: column;
     min-height: 20vh;
 }
