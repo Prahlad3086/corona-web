@@ -22,7 +22,33 @@
         <div class="wrapper-main mt-4">
             <div class="wrapper">
                 <div class="top">
-                    <h1>Hi there</h1>
+                    <div class="search-bar">
+                        <label class="fadeUp">Search your country here</label>
+                        <form class="mt-4 mb-1" action="/country" method="post">
+                            <input class="search-input pl-4" type="text" name="country" required autofocus>
+                            <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <label class="time-stamp mt-3">{{dateAndTime}} IST</label>
+                    </div>
+                    <div class="name-header p-1 mt-4">
+                        <div class="left">
+                            <div class="country-name">
+                                <h3>{{countryName}}</h3>
+                            </div>
+                            <div class="updated-time">
+                                <label>Last updated on {{dateAndTime}}</label>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="tested">
+                                <span>Tested</span>
+                                <h4>{{testedTotal}}</h4>
+                            </div>
+                            <div class="tested source">
+                                <label>This is updated from source</label>
+                            </div>
+                        </div>
+                    </div>
                     {{>headerdata}}
                 </div>
                 <div class="middle">

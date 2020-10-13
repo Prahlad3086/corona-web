@@ -24,6 +24,108 @@ body, html{
     width: 80%;
 }
 
+.wrapper .top .search-bar {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.wrapper .top .search-bar form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.wrapper .top .search-bar .fadeUp {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.search-bar .search-input{
+    width: 50%;
+    height: 7vh;
+    background:  #1e1e30!important;
+    color: #f1e9e99f;
+    font-size: 20px;
+    outline: none;
+    border: 0px;
+    border-radius: 10px 0 0 10px;
+}
+
+.search-bar .search-btn{
+    height: 7vh;
+    width: 20%;
+    text-decoration: none;
+    background: #1e1e30;
+    color: #6c757d;
+    border: 0px;
+    font-size: 24px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.search-bar .search-btn:hover{
+    cursor: pointer;
+    background:  #6c757d!important;
+    color: #1e1e30!important;
+}
+
+.wrapper .top .search-bar .time-stamp{
+    color: #6c757d;
+    font-size: 12px;
+}
+
+.wrapper .top .name-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.wrapper .top .name-header .left{
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    max-width: 50%;
+    flex-direction: column;
+    min-height: 20vh;
+}
+
+.wrapper .top .name-header .right{
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    max-width: 50%;
+    flex-direction: column;
+    min-height: 20vh;
+}
+
+.wrapper .top .name-header .left .country-name{
+    text-align: center;
+    padding: 1vh 0vh;
+    color:  rgba(255,7,58,.6);
+    background: rgba(255,7,58,.12549);
+    border-radius: 10px;
+}
+
+.top .name-header .left .updated-time{
+    color: #6c757d;
+}
+
+.top .name-header .right .tested{
+    align-content: right;
+    text-align: right;
+    color:  #8475da;
+}
+
+.top .name-header .right .tested h4{
+    font-size: 28px;
+    font-weight: 600;
+    color: #6955da;
+}
+
 .wrapper .top .Mappers{
     display: flex;
     flex-direction: row;
@@ -37,7 +139,6 @@ body, html{
     justify-content: space-between;
     text-align: center;
     padding: 2vh 1vw;
-    /* background:  violet!important; */
     border-radius: 10px;
     width: 25%;
 }
@@ -109,6 +210,16 @@ body, html{
 }
 
 @media only screen and (min-width: 1299px){
+    .wrapper .top{
+        width: 80%;
+    }
+
+    .wrapper .top .search-bar form{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 1298px){
     .wrapper .top{
         width: 80%;
     }
