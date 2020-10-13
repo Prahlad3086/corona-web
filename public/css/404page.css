@@ -177,8 +177,18 @@ li a:hover {
 
 .central-body{
 /*    width: 100%;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 17% 5% 10% 5%;
     text-align: center;
+}
+
+.central-body .title-404{
+    color:  #fffffff5;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 5px;
 }
 
 .objects img{

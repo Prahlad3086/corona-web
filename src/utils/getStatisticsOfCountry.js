@@ -1,4 +1,9 @@
 const request = require('request');
+const express = require('express');
+
+const app = express();
+
+app.use(express.json());
 
 const getStatisticsOfCountry = (country, callback)=>{
 
@@ -16,11 +21,9 @@ const getStatisticsOfCountry = (country, callback)=>{
     request(options, (error, response)=> {
         if (error){
             callback("Unable to connect the API please wait...", undefined)
-        }else if(response.body.error){
-            callback("Sorry, We are not able to find this country. Please try another one.", undefined)
         }
         else{
-            callback(undefined, response)
+            callback(undefined, response);
         }
     });
 }

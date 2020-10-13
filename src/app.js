@@ -38,29 +38,31 @@ const NumberFormatter = (num)=>{
 
 app.get('', (req, res)=>{
     getStatistics((error, body)=> {
-        const response = body.response;
-        const dateTime = moment(body.response[0].time, moment.ISO_8601);
-
-        const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
-
-        let RiseConfirmed=0, Confirmed=0, Active=0, Recovered=0, RiseDeaths=0, Deaths=0;
-
-        for(let i=body.results-20;i<body.results;i++){
-            if(response[i].population === null){
-                var e = response[i];
-                RiseConfirmed+=Number(e.cases.new);
-                Confirmed+=Number(e.cases.total);
-                Active+=Number(e.cases.active);
-                Recovered+=Number(e.cases.recovered);
-                RiseDeaths+=Number(e.deaths.new);
-                Deaths+=Number(e.deaths.total);
-            }
-        }
+        
         if(error){
-            res.render({
-                error: error
+            res.render('404page', {
+                title: error
             });
         }else{
+            const response = body.response;
+            const dateTime = moment(body.response[0].time, moment.ISO_8601);
+
+            const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
+
+            let RiseConfirmed=0, Confirmed=0, Active=0, Recovered=0, RiseDeaths=0, Deaths=0;
+
+            for(let i=body.results-20;i<body.results;i++){
+                if(response[i].population === null){
+                    var e = response[i];
+                    RiseConfirmed+=Number(e.cases.new);
+                    Confirmed+=Number(e.cases.total);
+                    Active+=Number(e.cases.active);
+                    Recovered+=Number(e.cases.recovered);
+                    RiseDeaths+=Number(e.deaths.new);
+                    Deaths+=Number(e.deaths.total);
+                }
+            }
+
             res.render('index', {
                 response,
                 dateAndTime,
@@ -77,14 +79,19 @@ app.get('', (req, res)=>{
 
 app.get('/country', (req, res)=>{
     getStatisticsOfCountry('india', (error, { body })=> {
-        const response = body.response;
-        const dateTime = moment(body.response[0].time, moment.ISO_8601);
-        const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
         if(error){
             return res.render('404page', {
 
             })
+        }else if(body.results === 0){
+            return res.render('404page', {
+
+            })
         }
+
+        const response = body.response;
+        const dateTime = moment(body.response[0].time, moment.ISO_8601);
+        const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
 
         res.render('country-detail', {
             countryName: response[0].country,
@@ -101,21 +108,25 @@ app.get('/country', (req, res)=>{
 });
 
 app.post('/country', function(req, res){
-    if(!req.body.country){
-        return res.render('404page', {
+    // if(!req.body.country){
+    //     return res.render('404page', {
 
-        })
-    }
-
+    //     })
+    // }
     getStatisticsOfCountry(req.body.country, (error, { body })=> {
+        if(error){
+            return res.render('404page', {
+                title: 'API is not responding. Please try again later!!'
+            })
+        }else if(body.results === 0){
+            return res.render('404page', {
+                title: 'Sorry, This country is not in our database. Please try another one'
+            })
+        }
+
         const response = body.response;
         const dateTime = moment(body.response[0].time, moment.ISO_8601);
         const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
-        if(error){
-            return res.render('404page', {
-
-            })
-        }
 
         res.render('country-detail', {
             countryName: response[0].country,
@@ -133,7 +144,7 @@ app.post('/country', function(req, res){
 
 app.get('/corona/*', (req, res)=>{
     res.render('404page', {
-        
+        title: 'This page is not found'
     });
 });
 
@@ -145,13 +156,13 @@ app.get('/about', (req, res)=>{
 
 app.get('/about/*', (req, res)=>{
     res.render('404page', {
-        
+        title: 'Sorry, This page is not found.'
     });
 });
 
 app.get('*', (req, res)=>{
     res.render('404page', {
-        
+        title: 'Sorry, This page is not found.'
     });
 });
 
