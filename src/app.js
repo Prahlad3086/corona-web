@@ -85,7 +85,7 @@ app.get('/country', (req, res)=>{
             })
         }else if(body.results === 0){
             return res.render('404page', {
-                title: 'Sorry, You have entered incorrect country name. You can always take the help of Home Page'
+                title: 'Sorry, You have entered incorrect country name.'
             })
         }
 
@@ -123,7 +123,7 @@ app.post('/country', function(req, res){
             })
         }else if(body.results === 0){
             return res.render('404page', {
-                title: 'Sorry, You have entered incorrect country name. You can always take the help of Home Page'
+                title: 'Sorry, You have entered incorrect country name.'
             })
         }
 
