@@ -77,8 +77,6 @@ app.get('', (req, res)=>{
     })
 });
 
-var nameOfTheCountry = 'India';
-
 app.get('/country', (req, res)=>{
     getStatisticsOfCountry('india', (error, { body })=> {
         if(error){
@@ -87,7 +85,7 @@ app.get('/country', (req, res)=>{
             })
         }else if(body.results === 0){
             return res.render('404page', {
-                title: 'Sorry, You have entered incorrect country name (You can always take the help of Home Page)'
+                title: 'Sorry, You have entered incorrect country name. You can always take the help of Home Page'
             })
         }
 
@@ -118,7 +116,6 @@ app.post('/country', function(req, res){
             title: 'Please write country name'
         })
     }
-    nameOfTheCountry = req.body.country.trim();
     getStatisticsOfCountry(req.body.country.trim(), (error, { body })=> {
         if(error){
             return res.render('404page', {
@@ -126,7 +123,7 @@ app.post('/country', function(req, res){
             })
         }else if(body.results === 0){
             return res.render('404page', {
-                title: 'Sorry, You have entered incorrect country name (You can always take the help of Home Page)'
+                title: 'Sorry, You have entered incorrect country name. You can always take the help of Home Page'
             })
         }
 
@@ -134,12 +131,6 @@ app.post('/country', function(req, res){
         const dateTime = moment(body.response[0].time, moment.ISO_8601);
         const timeFromNow = dateTime.fromNow();
         const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
-
-        // res.send({
-        //     Name: 'Prahlad',
-        //     Age: 45
-
-        // })
 
         res.render('country-detail', {
             countryName: response[0].country,
@@ -156,18 +147,18 @@ app.post('/country', function(req, res){
     })
 });
 
-app.get('/history', (req, res)=>{
-    getHistory('India', (error , response)=> {
-        if(error){
-            res.send( { error: error } );
-        }else{
-            res.send({
-                data: response
-            });
-        }
-    });
+// app.get('/history', (req, res)=>{
+//     getHistory('India', (error , response)=> {
+//         if(error){
+//             res.send( { error: error } );
+//         }else{
+//             res.send({
+//                 data: response
+//             });
+//         }
+//     });
 
-})
+// })
 
 app.get('/about', (req, res)=>{
     res.render('about', {
