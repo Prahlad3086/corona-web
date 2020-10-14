@@ -3,7 +3,8 @@ const hbs = require('hbs');
 const express = require('express');
 const moment = require('moment');
 const getStatistics = require('./utils/getStatistics');
-const getStatisticsOfCountry = require('./utils/getStatisticsOfCountry');
+const getStatisticsOfCountry  = require('./utils/getStatisticsOfCountry');
+const getHistory = require('./utils/getHistory');
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -46,7 +47,6 @@ app.get('', (req, res)=>{
         }else{
             const response = body.response;
             const dateTime = moment(body.response[0].time, moment.ISO_8601);
-
             const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
 
             let RiseConfirmed=0, Confirmed=0, Active=0, Recovered=0, RiseDeaths=0, Deaths=0;
@@ -77,24 +77,29 @@ app.get('', (req, res)=>{
     })
 });
 
+var nameOfTheCountry = 'India';
+
 app.get('/country', (req, res)=>{
     getStatisticsOfCountry('india', (error, { body })=> {
         if(error){
             return res.render('404page', {
-
+                title: 'API is not responding. Please try again later!!'
             })
         }else if(body.results === 0){
             return res.render('404page', {
-
+                title: 'Sorry, This country is not in our database. Please try another one'
             })
         }
 
         const response = body.response;
         const dateTime = moment(body.response[0].time, moment.ISO_8601);
+        const timeFromNow = dateTime.fromNow();
         const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
+
 
         res.render('country-detail', {
             countryName: response[0].country,
+            timeFromNow,
             dateAndTime,
             RiseConfirmed: '+ '+NumberFormatter(response[0].cases.new),
             Confirmed: NumberFormatter(response[0].cases.total),
@@ -113,6 +118,7 @@ app.post('/country', function(req, res){
             title: 'Please write country name'
         })
     }
+    nameOfTheCountry = req.body.country.trim();
     getStatisticsOfCountry(req.body.country.trim(), (error, { body })=> {
         if(error){
             return res.render('404page', {
@@ -126,10 +132,18 @@ app.post('/country', function(req, res){
 
         const response = body.response;
         const dateTime = moment(body.response[0].time, moment.ISO_8601);
+        const timeFromNow = dateTime.fromNow();
         const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
+
+        // res.send({
+        //     Name: 'Prahlad',
+        //     Age: 45
+
+        // })
 
         res.render('country-detail', {
             countryName: response[0].country,
+            timeFromNow,
             dateAndTime,
             RiseConfirmed: '+'+NumberFormatter(response[0].cases.new),
             Confirmed: NumberFormatter(response[0].cases.total),
@@ -141,6 +155,19 @@ app.post('/country', function(req, res){
         });
     })
 });
+
+app.get('/history', (req, res)=>{
+    getHistory('India', (error , response)=> {
+        if(error){
+            res.send( { error: error } );
+        }else{
+            res.send({
+                data: response
+            });
+        }
+    });
+
+})
 
 app.get('/about', (req, res)=>{
     res.render('about', {

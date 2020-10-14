@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="./css/country-detail.css">
     <link rel="stylesheet" href="./css/partials/navbar.css">
     <link rel="stylesheet" href="./css/partials/footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,300&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/3f067de817.js" crossorigin="anonymous"></script>
     <script type="javascript/text" src="./js/components/country-detail.js"></script>
+    <script type="javascript/text" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 </head>
 <body>
     <div class="main">
@@ -27,7 +28,7 @@
                         <label class="fadeUp">Search your country here</label>
                         <form class="mt-4 mb-1" action="/country" method="post">
                             <input class="search-input pl-4" type="text" name="country" value="{{countryName}}" required>
-                            <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+                            <button class="search-btn" id="searchCountry" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         <label class="time-stamp mt-3">{{dateAndTime}} IST</label>
                     </div>
@@ -37,7 +38,7 @@
                                 <h3>{{countryName}}</h3>
                             </div>
                             <div class="updated-time">
-                                <label>Last updated on {{dateAndTime}}</label>
+                                <label>Last updated {{timeFromNow}}</label>
                             </div>
                         </div>
                         <div class="right">
@@ -52,15 +53,32 @@
                     </div>
                     {{>headerdata}}
                 </div>
-                <div class="middle">
-                    <h1>Hello There!</h1>
-                </div>
-                <div class="bottom">
-                    <h1>Kaise ho</h1>
-                </div>
+                {{!-- <div class="middle mt-4">
+                    <div class="Graphs">
+                        <div class="graph-head mb-3">
+                            <h2>Spread Trends</h2>
+                        </div>
+                        <div class="graph-confirmed mt-2">
+                            <h4>Confirmed</h4>
+                        </div>
+                        <div class="graph-active mt-2">
+                            <h4>Active</h4>
+                        </div>
+                        <div class="graph-recovered mt-2">
+                            <h4>Recovered</h4>
+                        </div>
+                        <div class="graph-deceased mt-2">
+                            <h4>Deceased</h4>
+                        </div>
+                        <div class="graph-tested mt-2">
+                            <h4>Tested</h4>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
+            {{>footer}}
         </div>
-        {{>footer}}
     </div>
+    <script src="./js/country-wise.js"></script>
 </body>
 </html>

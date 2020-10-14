@@ -217,6 +217,50 @@ body, html{
     margin-bottom: -1vh;
 }
 
+/* Graphs CSS */
+.wrapper .middle{
+    width: 100%;
+}
+
+.wrapper .middle .Graphs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.middle .Graphs .graph-head h2{
+    color: #f1e9e99f;
+}
+
+.middle .Graphs .graph-confirmed{
+    background: rgba(255, 7, 58, 0.125);
+    width: 100%;
+}
+
+.middle .Graphs .graph-active{
+    background: rgba(0, 123, 255, 0.063);
+    width: 100%;
+}
+
+.middle .Graphs .graph-recovered{
+    background: rgba(40, 167, 69, 0.125);
+    width: 100%;
+}
+
+.middle .Graphs .graph-deceased{
+    background: rgba(108,117,125,.0627451);
+    width: 100%;
+}
+
+.middle .Graphs .graph-tested{
+    background: rgba(64,0,128,.313725)!important;
+    width: 100%;
+}
+
+
+
 @media only screen and (min-width: 1299px){
     .wrapper .top{
         width: 80%;
