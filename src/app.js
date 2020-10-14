@@ -81,11 +81,11 @@ app.get('/country', (req, res)=>{
     getStatisticsOfCountry('india', (error, { body })=> {
         if(error){
             return res.render('404page', {
-                title: 'API is not responding. Please try again later!!'
+               
             })
         }else if(body.results === 0){
             return res.render('404page', {
-                title: 'Sorry, You have entered incorrect country name.'
+                
             })
         }
 
@@ -123,7 +123,7 @@ app.post('/country', function(req, res){
             })
         }else if(body.results === 0){
             return res.render('404page', {
-                title: 'Sorry, You have entered incorrect country name.'
+                title: 'Sorry, You have entered incorrect country name. You can always take the help of Home Page.'
             })
         }
 
