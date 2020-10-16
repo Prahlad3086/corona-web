@@ -45,13 +45,18 @@ app.get('', (req, res)=>{
                 title: error
             });
         }else{
-            const response = body.response;
+            var response = body.response;
+
+            response.sort((a,b)=>{
+                return a.cases.total > b.cases.total ? -1 : 1;
+            })
+
             const dateTime = moment(body.response[0].time, moment.ISO_8601);
             const dateAndTime = dateTime.format("Do MMM, YYYY HH:mm A z");
 
             let RiseConfirmed=0, Confirmed=0, Active=0, Recovered=0, RiseDeaths=0, Deaths=0;
 
-            for(let i=body.results-20;i<body.results;i++){
+            for(let i=0;i<1;i++){
                 if(response[i].population === null){
                     var e = response[i];
                     RiseConfirmed+=Number(e.cases.new);
@@ -62,6 +67,10 @@ app.get('', (req, res)=>{
                     Deaths+=Number(e.deaths.total);
                 }
             }
+
+            response = response.filter((e)=>{
+                return e.population !== null;
+            })
 
             res.render('index', {
                 response,
