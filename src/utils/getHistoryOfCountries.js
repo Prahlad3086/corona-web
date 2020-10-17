@@ -1,56 +1,23 @@
 const getHistory = require('./getHistory');
 const moment = require('moment');
-const express = require('express');
-
-express().use(express.json);
 
 const startMoment = moment().subtract(91, 'days');
-const endMoment = moment();
 
-const totalConfirmed = [];
-const totalActive = [];
-const totalRecovered = [];
-const totalDeceased = [];
-const totalTested = [];
-const dates = [];
+const history = [];
 
 const getHistoryOfCountries = async (country, callback)=>{
 
-    await getHistory(country, async (error, responseBody)=> {
+    await getHistory(country, (error, body)=> {
         if(error){
-            console.log(error);
+            callback(error, undefined);
         }else{
-            const e = responseBody.response;
-            while(startMoment.isBefore(endMoment, 'day')){
-                const date = startMoment.format('YYYY-MM-DD');
-                
-                for(var j = 0; j<responseBody.results ; j++){
-                    if(e[j].day === date){
-
-                        totalConfirmed.push(e[j].cases.total);
-                        totalActive.push(e[j].cases.active);
-                        totalRecovered.push(e[j].cases.recovered);
-                        totalDeceased.push(e[j].deaths.total);
-                        totalTested.push(e[j].tests.total);
-                        console.log(e[j].day);
-                        break;
-                    }
+            body.response.reverse().forEach(e =>{
+                if(e.day === startMoment.format('YYYY-MM-DD')){
+                    history.push(e);
+                    startMoment.add(1, 'days');
                 }
-                console.log(date);
-                dates.push(date);
-                startMoment.add(1, 'days');
-            }
-
-            const data = {
-                totalConfirmed: totalConfirmed,
-                totalActive: totalActive,
-                totalRecovered: totalRecovered,
-                totalDeceased: totalDeceased,
-                totalTested: totalTested,
-                dates: dates
-            }
-
-            return data;
+            });
+            callback(undefined, history);
         }
     });
 }

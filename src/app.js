@@ -4,7 +4,7 @@ const express = require('express');
 const moment = require('moment');
 const getStatistics = require('./utils/getStatistics');
 const getStatisticsOfCountry  = require('./utils/getStatisticsOfCountry');
-const getHistory = require('./utils/getHistory');
+const getHistoryOfCountries = require('./utils/getHistoryOfCountries');
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -87,6 +87,7 @@ app.get('', (req, res)=>{
 });
 
 app.get('/country', (req, res)=>{
+
     getStatisticsOfCountry('india', (error, { body })=> {
         if(error){
             return res.render('404page', {
@@ -125,6 +126,7 @@ app.post('/country', function(req, res){
             title: 'Please write country name'
         })
     }
+
     getStatisticsOfCountry(req.body.country.trim(), (error, { body })=> {
         if(error){
             return res.render('404page', {
@@ -156,18 +158,24 @@ app.post('/country', function(req, res){
     })
 });
 
-// app.get('/history', (req, res)=>{
-//     getHistory('India', (error , response)=> {
-//         if(error){
-//             res.send( { error: error } );
-//         }else{
-//             res.send({
-//                 data: response
-//             });
-//         }
-//     });
+app.get('/history', (req, res)=>{
+    const getData = async (country)=>{
+        await getHistoryOfCountries(country, (error, history)=>{
+            if(error){
+                return res.send({
+                    error
+                })
+            }else{
+                res.send({
+                    history
+                })
+            }
+        });
+    }
 
-// })
+    getData(req.query.country);
+
+})
 
 app.get('/about', (req, res)=>{
     res.render('about', {
