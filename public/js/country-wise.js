@@ -71,9 +71,18 @@ const fun = async ()=>{
         options: {
             scales: {
                 yAxes: [{
+                    gridLines:{
+                        color: 'rgba(255, 7, 58, .234)'
+                    },
                     ticks: {
-                        beginAtZero: false
+                        beginAtZero: false,
+                        color: 'rgba(255, 7, 58, .234)'
                     }
+                }],
+                xAxes: [{
+                    gridLines:{
+                        color: 'rgba(255, 7, 58, .234)'
+                    },
                 }]
             }
         }
@@ -95,9 +104,17 @@ const fun = async ()=>{
         options: {
             scales: {
                 yAxes: [{
+                    gridLines:{
+                        color: 'rgba(0,123,255,.245)'
+                    },
                     ticks: {
                         beginAtZero: false
                     }
+                }],
+                xAxes: [{
+                    gridLines:{
+                        color: 'rgba(0,123,255,.245)'
+                    },
                 }]
             }
         }
@@ -119,9 +136,17 @@ const fun = async ()=>{
         options: {
             scales: {
                 yAxes: [{
+                    gridLines:{
+                        color: 'rgba(40,167,69,.245)'
+                    },
                     ticks: {
                         beginAtZero: false
                     }
+                }],
+                xAxes: [{
+                    gridLines:{
+                        color: 'rgba(40,167,69,.245)'
+                    },
                 }]
             }
         }
@@ -143,9 +168,17 @@ const fun = async ()=>{
         options: {
             scales: {
                 yAxes: [{
+                    gridLines:{
+                        color: 'rgba(108,117,125,.245)'
+                    },
                     ticks: {
                         beginAtZero: false
                     }
+                }],
+                xAxes: [{
+                    gridLines:{
+                        color: 'rgba(108,117,125,.245)'
+                    },
                 }]
             }
         }
@@ -167,8 +200,16 @@ const fun = async ()=>{
         options: {
             scales: {
                 yAxes: [{
+                    gridLines:{
+                        color: 'rgba(150,115,185,.233333)'
+                    },
                     ticks: {
                         beginAtZero: false
+                    }
+                }],
+                xAxes: [{
+                    gridLines:{
+                        color: 'rgba(150,115,185,.233333)'
                     }
                 }]
             }
