@@ -30,12 +30,15 @@ const NumberFormatter = (num)=>{
 }
 
 const fun = async ()=>{
+    console.log(countryName);
+
     await fetch('/history?country='+countryName).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 console.log(error);
             }
             else{
+                console.log(data.history[0]);
                 data.history.forEach((e)=>{
                     confirmed.push(e.cases.total);
                     active.push(e.cases.active);
@@ -43,6 +46,11 @@ const fun = async ()=>{
                     deceased.push(e.deaths.total);
                     tested.push(e.tests.total);
                 })
+                myChart1.update();
+                myChart2.update();
+                myChart3.update();
+                myChart4.update();
+                myChart5.update();
             }
         })
     })
@@ -55,7 +63,7 @@ const fun = async ()=>{
             datasets: [{
                 label: 'Cofirmed',
                 data: confirmed,
-                // backgroundColor: 'rgba(255,7,58,.6)',
+                backgroundColor: 'rgba(255, 7, 58, 0.345)',
                 borderColor: 'rgba(255, 7, 58, 1)',
                 borderWidth: 1
             }]
@@ -79,7 +87,7 @@ const fun = async ()=>{
             datasets: [{
                 label: 'Active',
                 data: active,
-                // backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                backgroundColor: 'rgba(0,123,255,.345)',
                 borderColor: '#007bff',
                 borderWidth: 1
             }]
@@ -103,7 +111,7 @@ const fun = async ()=>{
             datasets: [{
                 label: 'Recovered',
                 data: recovered,
-                // backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                backgroundColor: 'rgba(40,167,69,.345)',
                 borderColor: '#28a745',
                 borderWidth: 1
             }]
@@ -127,7 +135,7 @@ const fun = async ()=>{
             datasets: [{
                 label: 'Deceased',
                 data: deceased,
-                // backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                backgroundColor: 'rgba(108,117,125,.345)',
                 borderColor: '#6c757d',
                 borderWidth: 1
             }]
@@ -151,7 +159,7 @@ const fun = async ()=>{
             datasets: [{
                 label: 'Tested',
                 data: tested,
-                // backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                backgroundColor: 'rgba(150,115,185,.433333)',
                 borderColor: '#9673b9',
                 borderWidth: 1
             }]
