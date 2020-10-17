@@ -30,7 +30,6 @@ const NumberFormatter = (num)=>{
 }
 
 const fun = async ()=>{
-    console.log(countryName);
 
     await fetch('/history?country='+countryName).then((response)=>{
         response.json().then((data)=>{
@@ -38,7 +37,6 @@ const fun = async ()=>{
                 console.log(error);
             }
             else{
-                console.log(data.history[0]);
                 data.history.forEach((e)=>{
                     confirmed.push(e.cases.total);
                     active.push(e.cases.active);

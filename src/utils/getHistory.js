@@ -1,10 +1,10 @@
 const request = require('request');
 
-const getHistory = (country , callback) => {
+const getHistory = async(country , callback) => {
     const options = {
         method: 'GET',
         url: 'https://covid-193.p.rapidapi.com/history',
-        qs: { country: country },
+        qs: { country },
         json: true,
         headers: {
             'x-rapidapi-host': 'covid-193.p.rapidapi.com',
@@ -13,7 +13,7 @@ const getHistory = (country , callback) => {
         }
     };
 
-    request(options, (error, response)=> {
+    await request(options, (error, response)=> {
         if (error) {
             callback("Please provide all the informations", undefined);
         }else{

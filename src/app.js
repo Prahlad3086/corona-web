@@ -158,7 +158,7 @@ app.post('/country', function(req, res){
     })
 });
 
-app.get('/history', (req, res)=>{
+app.get('/history', async (req, res)=>{
     const getData = async (country)=>{
         await getHistoryOfCountries(country, (error, history)=>{
             if(error){
@@ -173,7 +173,7 @@ app.get('/history', (req, res)=>{
         });
     }
 
-    getData(req.query.country);
+    await getData(req.query.country);
 
 })
 
