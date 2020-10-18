@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="png/jpg" href="https://img.icons8.com/nolan/64/coronavirus.png" sizes="50x50">
+    <title>About Page</title>
+    <link rel="stylesheet" href="./css/partials/footer.css" >
+    <link rel="stylesheet" href="./css/partials/navbar.css" >
+    <link rel="stylesheet" href="./css/about-page.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3f067de817.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="About">
+        {{>navbar}}
+        <div class="content-wrapper mt-5 mb-3">
+            <div class="contents">
+                <h2>Is this site Official?</h2>
+                <p>No.</p>
+            </div>
+            <div class="contents">
+                <h2>What are your sources? How is the data gathered for this project?</h2>
+                <p>I am using Rapid API to update data. API is available for all(free) at https://rapidapi.com/api-sports/api/covid-193. You can also use these data.</p>
+            </div>
+            <div class="contents">
+                <h2>Why does your Web App have difference in numbers compared to MOHFW website?</h2>
+                <p>MoHFW updates the data at a scheduled time. However,My API(which I have used) update them in the interval of 15 minutes. These are generally more recent.</p>
+            </div>
+            <div class="contents">
+                <h2>Where can I find the data for this?</h2>
+                <p>All the data is available through an API for further analysis and development here : https://rapidapi.com/api-sports/api/covid-193</p>
+            </div>
+            <div class="contents">
+                <h2>Who are you?</h2>
+                <p>I am a student of NIT Kurukshetra, Haryana. I have designed it for practice purpose only. But It is much realistic so you can use it for checking data of country without any difficulty. I have taken the help covid19india.org page only for choosing colors and design</p>
+            </div>
+            <div class="contents">
+                <h2>Why are you putting in time and resources to do this while not gaining a single penny from it?</h2>
+                <p>Because it affects all of us. Today it's someone else who is getting infected; tomorrow it could be us. We need to prevent the spread of this virus. We need to document the data so that people with knowledge can use this data to make informed decisions.</p>
+            </div>
+        </div>
+        {{>footer}}
+    </div>
+</body>
+</html>
