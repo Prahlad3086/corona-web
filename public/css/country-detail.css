@@ -234,6 +234,21 @@ body, html{
     color: #f1e9e99f;
 }
 
+.middle .Graphs .graph-head h6{
+    color: #f1e9e99f;
+}
+
+.wrapper .middle .Graphs .graph-head{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper .middle .Graphs div{
+    border-radius: 10px;
+}
+
 .middle .Graphs .graph-confirmed{
     background: rgba(255, 7, 58, 0.125);
     width: 100%;

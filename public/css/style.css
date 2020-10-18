@@ -76,6 +76,35 @@ body, html{
     font-size: 12px;
 }
 
+.Home .home-left .name-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.Home .home-left .name-header .left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 60%;
+    flex-direction: column;
+    min-height: 14vh;
+}
+
+.Home .home-left .name-header .left .country-name{
+    text-align: center;
+    padding: 1vh 0vh;
+    color:  rgba(255,7,58,.6);
+    min-width: 100%;
+    background: rgba(255,7,58,.12549);
+    border-radius: 10px;
+}
+
+.home-left .name-header .left .updated-time{
+    color: #6c757d;
+}
+
 .home-left .Mappers{
     display: flex;
     flex-direction: row;
